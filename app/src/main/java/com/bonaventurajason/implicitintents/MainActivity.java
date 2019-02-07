@@ -27,23 +27,21 @@ public class MainActivity extends AppCompatActivity {
         String url = mWebsiteEditText.getText().toString();
         Uri webpage = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if(intent.resolveActivity(getPackageManager()) != null){
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        }
-        else{
-            Log.d("ImplicitIntents","Can't handle this!");
+        } else {
+            Log.d("ImplicitIntents", "Can't handle this!");
         }
     }
 
     public void openLocation(View view) {
         String loc = mLocationEditText.getText().toString();
-        Uri addressUri = Uri.parse("geo:0,0q="+loc);
+        Uri addressUri = Uri.parse("geo:0,0?q=" + loc);
         Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
-        if(intent.resolveActivity(getPackageManager()) != null){
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        }
-        else{
-            Log.d("ImplicitIntents","Can't handle this intent");
+        } else {
+            Log.d("ImplicitIntents", "Can't handle this intent");
         }
 
     }
